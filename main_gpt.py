@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from utils import load_data
-from models import BigramLanguageModel
+from models import GPTLanguageModel
 
 from utils import batch_size, block_size, max_iters, eval_interval, learning_rate, device, eval_iters
 
@@ -39,7 +39,7 @@ def estimate_loss():
     return out
 
 
-model = BigramLanguageModel(vocab_size)
+model = GPTLanguageModel(vocab_size)
 m = model.to(device)
 
 # create a PyTorch optimizer

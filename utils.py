@@ -1,6 +1,25 @@
 
 import torch
 
+# hyperparameters
+batch_size = 32 # how many independent sequences will we process in parallel?
+block_size = 8 # what is the maximum context length for predictions?
+max_iters = 5000
+eval_interval = 500
+learning_rate = 1e-3
+#device = 'cuda' if torch.cuda.is_available() else 'cpu'
+if torch.cuda.is_available():
+    device = 'cuda'
+else:
+    device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+print("Using device:", device)  
+eval_iters = 200
+n_embd = 32
+nheads = 4
+nlayers = 3
+dropout = 0.2
+# ------------
+
 # data stuff
 
 def load_data():
